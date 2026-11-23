@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vends ton premier site en 10 jours · ACE Club</title>
+<meta name="description" content="Le programme est offert : tu paies juste le logiciel IA partenaire, le prix d'un resto. Tu laisses tes infos, l'équipe t'appelle dans les 10 minutes.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07090F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ACE Club">
+<meta property="og:title" content="Vends ton premier site en 10 jours">
+<meta property="og:description" content="Le programme est offert. Tu paies juste le logiciel IA partenaire, le prix d'un resto.">
+<meta property="og:image" content="/img/partage.png"><!-- [À FAIRE : adresse absolue une fois le domaine connu] -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/ace-favicon.png">
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ace.css">
+<style>
+/* ============ 1. Ouverture ============ */
+.ouverture{padding:44px 0 72px;text-align:center}
+.profil{display:inline-flex;align-items:center;gap:12px;text-align:left}
+.profil .avatar{flex:none;width:50px;height:50px;border-radius:50%;overflow:hidden;background:var(--color-surface);border:2px solid var(--color-accent);display:grid;place-items:center}
+.profil .avatar img{width:100%;height:100%;object-fit:cover}
+.profil .avatar svg{width:30px;height:auto}
+.profil .nom{display:block;font-weight:700;font-size:16px;line-height:1.3}
+.profil .legende{display:block;font-size:14px;line-height:1.35;color:var(--color-text-3)}
+.badge{display:flex;width:max-content;max-width:100%;align-items:center;gap:12px;margin:26px auto 0;padding:5px 14px 5px 5px;border:1px solid var(--color-line-2);border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-2)}
+.badge b{position:relative;isolation:isolate;padding:4px 12px;color:var(--color-on-accent);font-weight:700}
+.badge b::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--color-accent);border-radius:999px}
+.ouverture h1{margin-top:26px;font-size:clamp(42px, 6.4vw, 88px);line-height:1.02}
+.ouverture h1 .ligne{display:block}
+.ouverture h1 .aplat{margin-top:.1em}
+.ouverture .sous-titre{margin:24px auto 0;max-width:620px;font-size:clamp(18px, 1.5vw, 20px);line-height:1.55;color:var(--color-text-2)}
+.ouverture .sous-titre strong{color:var(--color-text);font-weight:650}
+
+.video{max-width:960px;margin:40px auto 0;padding:8px;background:var(--color-surface);border:1px solid var(--color-line-2);border-radius:20px}
+.video-cadre{position:relative;aspect-ratio:16/9;border-radius:13px;overflow:hidden;background:#0B0F18}
+.video-cadre iframe,.video-cadre video,.video-cadre>img{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
+.video-lancer{position:absolute;inset:0;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.video-lancer .lecture{position:relative;isolation:isolate;width:92px;height:68px;display:grid;place-items:center}
+.video-lancer .lecture::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--color-accent);border-radius:12px;transform:skewX(var(--skew));transition:transform .2s ease}
+.video-lancer:hover .lecture::before{transform:skewX(var(--skew)) scale(1.06)}
+.video-lancer .lecture svg{width:26px;height:26px;margin-left:3px;fill:var(--color-on-accent)}
+.video-lancer:focus-visible{outline-offset:-8px}
+.ouverture .relance{margin-top:36px}
+
+/* ============ Bandeau ============ */
+.bandeau{border-block:1px solid var(--color-line);overflow:hidden;padding:20px 0;background:var(--color-bg)}
+.bandeau-piste{display:flex;width:max-content;animation:defile 38s linear infinite}
+.bandeau ul{display:flex;align-items:center;flex:none}
+.bandeau li{display:flex;align-items:center;font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:22px;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
+.bandeau li::after{content:"";width:16px;height:10px;margin:0 28px;background:var(--color-accent);border-radius:2px;transform:skewX(var(--skew))}
+@keyframes defile{to{transform:translateX(-50%)}}
+
+/* ============ Sections ============ */
+.sec{padding:96px 0}
+.sec + .sec{padding-top:24px}
+
+/* 2. Le constat */
+.constat{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;padding:56px}
+.constat h2{font-size:clamp(30px, 3.4vw, 44px)}
+.constat .texte p{color:var(--color-text-2);font-size:18px}
+.constat .texte p + p{margin-top:22px;padding-top:22px;border-top:1px solid var(--color-line);color:var(--color-text);font-weight:600;font-size:19px}
+
+/* 3. Le modèle : trois lignes, sans cartes */
+.modele li{display:grid;grid-template-columns:150px 240px 1fr;align-items:baseline;gap:24px;padding:34px 0;border-top:1px solid var(--color-line)}
+.modele li:last-child{border-bottom:1px solid var(--color-line)}
+.modele .num{font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:64px;line-height:.9;color:var(--color-accent);letter-spacing:-.03em}
+.modele h3{font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:26px;line-height:1.15;letter-spacing:-.01em}
+.modele p{color:var(--color-text-2);font-size:18px;max-width:560px}
+
+/* 4. Les 10 jours : le rail */
+.jours{position:relative;display:flex;flex-direction:column;gap:12px}
+.jours::before,.rempli{content:"";position:absolute;left:35px;top:20px;bottom:20px;width:2px;background:var(--color-line-2)}
+.rempli{background:var(--color-accent);bottom:auto;height:calc((100% - 40px) * var(--avance, 0))}
+.jour{position:relative;display:grid;grid-template-columns:72px 1fr;gap:18px;align-items:start}
+.jour-num{position:relative;z-index:1;width:72px;height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--color-bg);border:1px solid var(--color-line-2);border-radius:14px;transition:border-color .3s ease, background-color .3s ease}
+.jour-num small{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-3);line-height:1}
+.jour-num b{font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:28px;line-height:1.05;color:var(--color-text)}
+.jour.atteint .jour-num{border-color:var(--color-accent);background:var(--color-accent)}
+.jour.atteint .jour-num small,.jour.atteint .jour-num b{color:var(--color-on-accent)}
+.jour-carte{padding:20px 24px}
+.jour-carte h3{font-size:18px;font-weight:700;line-height:1.35}
+.jour-carte p{margin-top:4px;color:var(--color-text-2);font-size:16px}
+.a-valider{margin-top:20px;text-align:center}
+
+/* 5. Ce que tu reçois */
+.recois{max-width:880px;margin:0 auto;padding:48px}
+.recois .tete{margin-bottom:28px}
+.recois-liste li{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--color-line)}
+.recois-liste .num{position:relative;isolation:isolate;width:44px;height:32px;display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:15px;color:var(--color-accent)}
+.recois-liste .num::before{content:"";position:absolute;inset:0;z-index:-1;border:1px solid rgba(124,156,255,.45);border-radius:6px;transform:skewX(var(--skew))}
+.recois-liste h3{font-size:18px;font-weight:700;line-height:1.35}
+.recois-liste p{margin-top:3px;color:var(--color-text-2);font-size:16px}
+.prix{margin-top:12px;padding:36px;text-align:center;background:var(--color-surface-2);border:1px solid var(--color-line-2);border-radius:14px}
+.prix h3{font-size:clamp(30px, 3.6vw, 42px);line-height:1.1}
+.prix p{max-width:520px;margin:16px auto 0;color:var(--color-text-2);font-size:18px}
+.prix .tarif{display:flex;align-items:baseline;justify-content:center;gap:22px;margin-top:22px}
+.tarif s{position:relative;font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:clamp(26px, 3vw, 34px);color:var(--color-text-3);text-decoration:none}
+.tarif s::after{content:"";position:absolute;left:-6%;right:-6%;top:50%;height:4px;margin-top:-2px;background:var(--color-accent);border-radius:2px;transform:rotate(-12deg)}
+.tarif b{font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:clamp(64px, 8vw, 96px);line-height:1;letter-spacing:-.03em;color:var(--color-accent)}
+.prix .relance{margin-top:28px}
+
+/* 6. Qui est … */
+.qui{display:grid;grid-template-columns:440px 1fr;gap:64px;align-items:center}
+.photo{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:var(--color-surface);border:1px solid var(--color-line)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo .todo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;max-width:80%;text-align:center}
+.qui .parcours{margin-top:24px;font-size:18px;color:var(--color-text-2)}
+.qui .relance{align-items:flex-start;text-align:left}
+
+/* 7. Pour qui */
+.pour-qui{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px;margin:0 auto}
+.pour-qui .carte{padding:32px}
+.pour-qui .oui{border-color:rgba(124,156,255,.5)}
+.pour-qui h3{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding-bottom:18px;border-bottom:1px solid var(--color-line)}
+.pour-qui .oui h3{color:var(--color-accent)}
+.pour-qui .non h3{color:var(--color-text-2)}
+.pour-qui li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--color-line);font-size:17px}
+.pour-qui li:last-child{border-bottom:0;padding-bottom:0}
+.marque-oui,.marque-non{position:relative;isolation:isolate;width:26px;height:24px;margin-top:1px;display:grid;place-items:center}
+.marque-oui::before,.marque-non::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:5px;transform:skewX(var(--skew))}
+.marque-oui::before{background:var(--color-accent)}
+.marque-non::before{border:1px solid var(--color-line-2)}
+.marque-oui svg,.marque-non svg{width:15px;height:15px;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.marque-oui svg{stroke:var(--color-on-accent)}
+.marque-non svg{stroke:var(--color-text-3);width:12px;height:12px}
+.non li{color:var(--color-text-2)}
+
+/* 8. Comment ça se passe + formulaire */
+.etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:980px;margin:0 auto}
+.etape{padding:28px}
+.etape .n{position:relative;isolation:isolate;display:grid;place-items:center;width:46px;height:40px;margin-bottom:22px;font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:20px;color:var(--color-accent)}
+.etape .n::before{content:"";position:absolute;inset:0;z-index:-1;border:1px solid rgba(124,156,255,.45);border-radius:7px;transform:skewX(var(--skew))}
+.etape.forte{border-color:rgba(124,156,255,.5)}
+.etape.forte .n{color:var(--color-on-accent)}
+.etape.forte .n::before{background:var(--color-accent);border-color:var(--color-accent)}
+.etape p{font-size:18px;font-weight:650;line-height:1.4}
+
+/* Overlay du formulaire */
+.overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(5,7,12,.86);overflow-y:auto;overscroll-behavior:contain;opacity:0;transition:opacity .2s ease}
+.overlay[hidden]{display:none}
+.overlay.ouvert{opacity:1}
+.modal{position:relative;width:100%;max-width:640px;margin:auto;padding:36px 40px;border-color:var(--color-line-2);transform:translateY(14px);transition:transform .25s ease}
+.overlay.ouvert .modal{transform:none}
+.modal:focus{outline:none}
+.modal .modal-titre{font-size:30px;line-height:1.1;padding-right:40px;margin-bottom:26px}
+.modal-fermer{position:absolute;top:16px;right:16px;width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--color-line-2);border-radius:50%;color:var(--color-text-2);transition:border-color .15s ease, color .15s ease}
+.modal-fermer:hover{border-color:var(--color-accent);color:var(--color-text)}
+.modal-fermer svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+html.modal-ouverte,html.modal-ouverte body{overflow:hidden}
+.champs{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.champ{display:flex;flex-direction:column;gap:8px;min-width:0}
+.champ.large{grid-column:1 / -1}
+.champ label,.champ legend{font-size:14px;font-weight:600;color:var(--color-text-2)}
+.champ legend{margin-bottom:8px}
+.saisie{width:100%;height:56px;padding:0 16px;font:inherit;font-size:16px;color:var(--color-text);background:var(--color-field);border:1px solid var(--color-line-2);border-radius:11px;transition:border-color .15s ease, box-shadow .15s ease;-webkit-appearance:none;appearance:none}
+.saisie::placeholder{color:#6F7890}
+.saisie:hover{border-color:rgba(242,244,248,.26)}
+.saisie:focus{outline:none;border-color:var(--color-accent);box-shadow:0 0 0 3px rgba(124,156,255,.22)}
+.saisie.invalide{border-color:var(--color-error)}
+.tel{display:grid;grid-template-columns:128px 1fr;gap:10px}
+select.saisie{padding-right:34px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23C9D1E3' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer}
+.indice{font-size:13px;color:var(--color-text-3)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.choix{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-radius:12px}
+.choix label{position:relative;display:flex;align-items:center;justify-content:center;min-height:50px;padding:6px 10px;text-align:center;font-size:15px;font-weight:600;color:var(--color-text-2);background:var(--color-field);border:1px solid var(--color-line-2);border-radius:11px;cursor:pointer;transition:border-color .15s ease, background-color .15s ease, color .15s ease}
+.choix label:hover{border-color:rgba(242,244,248,.26)}
+.choix input{position:absolute;opacity:0;pointer-events:none}
+.choix label:has(input:checked){color:var(--color-text);border-color:var(--color-accent);background:var(--color-accent-soft)}
+.choix label:has(input:focus-visible){outline:2px solid var(--color-accent);outline-offset:2px}
+.choix.invalide label{border-color:rgba(255,163,163,.6)}
+.consent{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:start;margin-top:22px;font-size:14.5px;line-height:1.5;color:var(--color-text-2);cursor:pointer}
+.consent input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--color-accent);cursor:pointer}
+.consent a{color:var(--color-accent);text-underline-offset:3px}
+.consent.manque{color:var(--color-error)}
+.leurre{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.erreur{margin-top:18px;padding:12px 14px;font-size:15px;color:var(--color-error);background:rgba(255,163,163,.08);border:1px solid rgba(255,163,163,.3);border-radius:10px}
+.modal .bouton{width:100%;justify-content:space-between;margin-top:24px}
+.modal .avert{margin-top:16px;text-align:center;font-size:13.5px;color:var(--color-text-3)}
+
+/* 9. Questions */
+.faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq details{background:var(--color-surface);border:1px solid var(--color-line);border-radius:14px;transition:border-color .2s ease}
+.faq details[open]{border-color:var(--color-line-2)}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;font-size:18px;font-weight:650;line-height:1.4;cursor:pointer;list-style:none;border-radius:14px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:focus-visible{outline-offset:-2px}
+.plus{position:relative;flex:none;width:32px;height:32px;border:1px solid var(--color-line-2);border-radius:50%}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--color-accent);border-radius:2px;transition:transform .25s ease}
+.plus::after{transform:rotate(90deg)}
+.faq details[open] .plus::after{transform:rotate(0)}
+.faq .reponse{padding:0 24px 24px;color:var(--color-text-2);font-size:17px}
+
+/* 10. Fin */
+.finale{max-width:980px;margin:0 auto;padding:72px 40px;text-align:center;border-color:var(--color-line-2)}
+.finale h2{font-size:clamp(32px, 4.6vw, 56px)}
+.finale .relance{margin-top:36px}
+
+/* ============ Barre fixe mobile ============ */
+.barre-mobile{display:none}
+
+/* ============ Mobile ============ */
+@media (max-width:860px){
+  .constat{grid-template-columns:1fr;gap:28px;padding:32px 24px}
+  .modele li{grid-template-columns:72px 1fr;gap:6px 16px;padding:26px 0}
+  .modele .num{grid-row:1 / 3;font-size:44px}
+  .modele p{grid-column:2;font-size:17px}
+  .modele h3{font-size:21px}
+  .qui{grid-template-columns:1fr;gap:32px}
+  .photo{max-width:440px;width:100%;margin:0 auto}
+  .pour-qui,.etapes{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .ouverture{padding:30px 0 56px}
+  .profil .avatar{width:44px;height:44px}
+  .badge{margin-top:22px;font-size:12px;gap:10px}
+  .ouverture h1{margin-top:22px;font-size:clamp(38px, 11.4vw, 48px)}
+  .ouverture .sous-titre{margin-top:18px;font-size:17px}
+  .video{margin:30px -8px 0;padding:5px;border-radius:15px}
+  .video-cadre{border-radius:10px}
+  .video-lancer .lecture{width:76px;height:56px}
+  .ouverture .relance{margin-top:28px}
+  .bandeau{padding:16px 0}
+  .bandeau li{font-size:18px}
+  .bandeau li::after{margin:0 20px}
+  .sec{padding:72px 0}
+  .sec + .sec{padding-top:16px}
+  .constat .texte p{font-size:17px}
+  .jours::before,.rempli{left:27px}
+  .jour{grid-template-columns:56px 1fr;gap:12px}
+  .jour-num{width:56px;height:60px;border-radius:12px}
+  .jour-num b{font-size:24px}
+  .jour-num small{font-size:10px}
+  .jour-carte{padding:16px 18px}
+  .jour-carte h3{font-size:17px}
+  .jour-carte p{font-size:15.5px}
+  .recois{padding:32px 20px}
+  .prix{padding:28px 18px}
+  .prix p{font-size:17px}
+  .pour-qui .carte{padding:24px 20px}
+  .etape{padding:22px;display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:center}
+  .etape .n{margin:0}
+  .etape p{font-size:17px}
+  .overlay{padding:0;align-items:stretch}
+  .modal{max-width:none;min-height:100%;border-radius:0;border:0;padding:24px 18px calc(28px + env(safe-area-inset-bottom))}
+  .modal-fermer{top:14px;right:14px}
+  .modal .modal-titre{font-size:25px;margin-bottom:22px;padding-right:48px}
+  .champs{grid-template-columns:1fr;gap:16px}
+  .tel{grid-template-columns:112px 1fr}
+  .choix{grid-template-columns:1fr 1fr}
+  .faq summary{padding:18px;font-size:17px}
+  .faq .reponse{padding:0 18px 20px;font-size:16px}
+  .finale{padding:48px 20px}
+  .qui .relance{align-items:stretch}
+  .qui .rassure{align-self:center}
+
+  .barre-mobile{display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(7,9,15,.97);border-top:1px solid var(--color-line);transform:translateY(110%);transition:transform .25s ease, visibility .25s;visibility:hidden}
+  .barre-mobile.visible{transform:none;visibility:visible}
+  .barre-mobile .bouton{min-height:54px;font-size:16px}
+  .barre-mobile .bouton .fleche{width:38px;height:38px}
+  .pied{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){ .bandeau-piste{animation:none} }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="logo-ace" viewBox="-2 -2 253.4 81"><g transform="translate(16.37 0) skewX(-12)"><path fill-rule="evenodd" fill="#F2F4F8" d="M165.75 59.25 L165.70 71.30 L165.95 72.20 L166.40 72.90 L167.10 73.50 L168.15 73.90 L229.25 73.95 L230.35 73.75 L231.20 73.25 L231.90 72.40 L232.20 71.60 L232.25 59.55 L232.00 58.65 L231.55 57.95 L230.85 57.35 L229.80 56.95 L168.70 56.90 L167.60 57.10 L166.75 57.60 L166.05 58.45Z M165.75 31.75 L165.70 43.90 L165.95 44.80 L166.40 45.50 L167.10 46.10 L168.15 46.50 L229.25 46.55 L230.35 46.35 L231.20 45.85 L231.90 45.00 L232.20 44.20 L232.25 32.05 L232.00 31.15 L231.55 30.45 L230.85 29.85 L229.80 29.45 L168.70 29.40 L167.60 29.60 L166.75 30.10 L166.05 30.95Z M27.65 2.45 L26.75 3.30 L26.20 4.45 L2.30 71.95 L2.15 73.30 L2.50 74.40 L3.55 75.50 L4.20 75.80 L5.15 75.95 L17.50 75.95 L18.45 75.80 L19.10 75.50 L19.95 74.70 L20.40 73.85 L38.45 21.10 L56.70 74.40 L57.75 75.50 L58.40 75.80 L59.35 75.95 L71.70 75.95 L72.65 75.80 L73.30 75.50 L74.00 74.90 L74.55 73.95 L74.70 73.30 L74.60 72.10 L50.30 3.60 L49.20 2.45 L48.55 2.15 L47.60 2.00 L29.25 2.00 L28.30 2.15Z M106.70 1.05 L104.20 1.90 L102.80 2.15 L101.30 2.90 L100.20 3.20 L96.20 5.20 L93.20 7.20 L88.45 11.45 L85.40 15.20 L84.80 16.40 L83.30 18.45 L83.00 19.30 L82.15 20.70 L81.80 21.90 L81.30 22.70 L80.90 24.30 L80.15 25.95 L78.95 31.55 L78.60 35.35 L78.60 41.10 L79.05 45.90 L79.90 48.90 L80.20 50.80 L82.10 55.70 L82.80 56.75 L83.40 58.25 L86.45 62.80 L88.85 65.40 L92.50 68.80 L96.45 71.45 L98.10 72.15 L99.20 72.85 L100.00 73.05 L101.00 73.65 L102.30 73.95 L103.75 74.65 L105.55 74.95 L107.70 75.65 L113.80 76.35 L118.40 76.35 L123.20 75.90 L128.60 74.70 L129.65 74.15 L131.25 73.75 L132.65 72.95 L133.45 72.75 L137.30 70.65 L141.20 67.75 L143.85 65.15 L147.00 61.10 L148.50 58.65 L148.85 57.65 L149.65 56.35 L150.50 53.65 L150.45 52.65 L150.15 51.85 L149.10 50.75 L148.45 50.45 L147.50 50.30 L133.05 50.35 L132.00 50.75 L131.30 51.35 L129.70 53.70 L127.35 56.10 L125.10 57.70 L122.60 58.90 L119.25 59.80 L116.35 60.00 L112.50 59.80 L109.00 58.85 L106.65 57.75 L106.00 57.20 L105.35 56.90 L102.20 54.00 L100.05 51.20 L98.95 49.10 L98.60 47.75 L97.95 46.40 L96.95 40.70 L96.95 35.95 L97.85 30.60 L98.15 29.55 L98.80 28.25 L98.95 27.45 L99.55 26.60 L99.95 25.55 L101.80 23.05 L104.15 20.70 L106.45 18.95 L106.90 18.85 L108.45 17.95 L112.15 16.90 L115.50 16.65 L119.60 16.90 L123.30 17.95 L124.15 18.55 L125.40 19.05 L126.80 20.05 L129.10 22.25 L131.65 25.55 L133.05 26.20 L148.00 26.20 L149.20 25.70 L150.10 24.70 L150.45 23.60 L150.35 22.35 L149.65 20.25 L147.65 16.45 L145.85 13.80 L144.25 11.90 L140.70 8.40 L137.75 6.20 L134.10 4.05 L133.45 3.90 L132.10 3.10 L130.85 2.80 L129.90 2.25 L128.10 1.85 L126.25 1.15 L120.75 0.25 L113.35 0.10Z"/><path fill="#7C9CFF" d="M165.75 4.35 L165.70 16.40 L165.95 17.30 L166.40 18.00 L167.10 18.60 L168.15 19.00 L229.25 19.05 L230.35 18.85 L231.20 18.35 L231.90 17.50 L232.20 16.70 L232.25 4.65 L232.00 3.75 L231.55 3.05 L230.85 2.45 L229.80 2.05 L168.70 2.00 L167.60 2.20 L166.75 2.70 L166.05 3.55Z"/></g></symbol>
+  <!-- les trois barres du « E » du logo -->
+  <symbol id="barres" viewBox="0 0 30 20"><g transform="skewX(-12)"><rect x="5" y="0" width="25" height="5" rx="1.2" fill="#7C9CFF"/><rect x="5" y="7.5" width="25" height="5" rx="1.2" fill="#F2F4F8" fill-opacity=".9"/><rect x="5" y="15" width="25" height="5" rx="1.2" fill="#F2F4F8" fill-opacity=".9"/></g></symbol>
+  <symbol id="fleche" viewBox="0 0 24 24"><path d="M5 12h13M13 6.5 18.5 12 13 17.5"/></symbol>
+  <symbol id="coche" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7"/></symbol>
+  <symbol id="croix" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<!-- Barre fine, toujours visible -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#ouverture" aria-label="ACE Club, haut de page"><svg viewBox="-2 -2 253.4 81" aria-hidden="true"><use href="#logo-ace"/></svg></a>
+    <a class="bouton petit" href="#formulaire">Je veux vendre mon premier site</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================= 1. Ouverture ======================= -->
+<section class="ouverture" id="ouverture">
+  <div class="wrap">
+    <div class="profil">
+      <span class="avatar" id="avatar"><svg viewBox="-2 -2 253.4 81" aria-hidden="true"><use href="#logo-ace"/></svg></span>
+      <span>
+        <span class="nom" id="profilNom">ACE Club</span>
+        <span class="legende" id="profilLegende">Des sites pour les commerces, faits avec l’IA</span>
+      </span>
+    </div>
+
+    <p class="badge"><b>10 jours</b> Programme ACE Club</p>
+
+    <h1 class="titre"><span class="ligne">Vends ton premier site</span> <span class="aplat">en 10 jours.</span></h1>
+    <p class="sous-titre"><strong>Mon programme est offert.</strong> Tu paies juste le logiciel IA partenaire, le prix d’un resto.</p>
+
+    <div class="video">
+      <div class="video-cadre" id="video">
+        <button type="button" class="video-lancer" id="videoLancer" aria-label="Lancer la vidéo">
+          <span class="lecture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
+          <span class="todo" id="videoTodo">[À FOURNIR : la vidéo et son image d’attente]</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="relance" id="actionOuverture">
+      <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+      <p class="rassure"><span class="point"></span>Tu laisses tes infos, l’équipe t’appelle dans les 10&nbsp;minutes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Bandeau : les commerces de la section 2 -->
+<div class="bandeau" aria-hidden="true">
+  <div class="bandeau-piste">
+    <ul><li>Le resto du quartier</li><li>Le coiffeur</li><li>Le garagiste</li><li>Le plombier</li><li>Le resto du quartier</li><li>Le coiffeur</li><li>Le garagiste</li><li>Le plombier</li></ul>
+    <ul><li>Le resto du quartier</li><li>Le coiffeur</li><li>Le garagiste</li><li>Le plombier</li><li>Le resto du quartier</li><li>Le coiffeur</li><li>Le garagiste</li><li>Le plombier</li></ul>
+  </div>
+</div>
+
+<!-- ======================= 2. Le constat ======================= -->
+<section class="sec" id="constat">
+  <div class="wrap">
+    <div class="carte constat">
+      <div>
+        <svg class="barres" style="margin:0 0 20px" aria-hidden="true"><use href="#barres"/></svg>
+        <h2 class="titre">Autour de toi, plein de commerces n’ont pas de site. Ou un site qui <span class="bleu">fait fuir.</span></h2>
+      </div>
+      <div class="texte">
+        <p>Le resto du quartier, le coiffeur, le garagiste, le plombier. Ils savent qu’ils devraient être en ligne. Mais ils n’ont ni le temps, ni l’envie de payer une agence.</p>
+        <p>Avec l’IA, tu peux leur faire un site propre en quelques heures, sans écrire de code. <span class="bleu">C’est ton entrée.</span></p>
+      </div>
+    </div>
+    <div class="relance">
+      <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. Le modèle ======================= -->
+<section class="sec" id="modele">
+  <div class="wrap">
+    <div class="tete">
+      <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+      <h2 class="titre">Un site. Puis un client qui te paie <span class="aplat">chaque mois.</span></h2>
+    </div>
+    <ol class="modele">
+      <li><span class="num">01</span><h3>Le site</h3><p>Tu le crées avec l’IA en quelques heures, et tu le montres au commerçant avant même qu’il paie.</p></li>
+      <li><span class="num">02</span><h3>La mise en ligne</h3><p>Nom de domaine, version mobile, fiche Google&nbsp;: tu livres un site prêt à être trouvé.</p></li>
+      <li><span class="num">03</span><h3>Le suivi</h3><p>Hébergement, modifications, mises à jour. Le commerçant te paie chaque mois pour que tu t’en occupes.</p></li>
+    </ol>
+    <div class="relance">
+      <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. Les 10 jours ======================= -->
+<section class="sec" id="jours">
+  <div class="wrap etroit">
+    <div class="tete">
+      <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+      <h2 class="titre">Dix jours. Une étape <span class="aplat">par jour.</span></h2>
+    </div>
+    <div class="jours" id="rail">
+      <span class="rempli" aria-hidden="true"></span>
+      <ol style="display:contents">
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>1</b></span><div class="carte jour-carte"><h3>Ton offre et ta cible</h3><p>Tu choisis les commerces que tu vises et ce que tu leur vends.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>2</b></span><div class="carte jour-carte"><h3>Ton premier site avec l’IA</h3><p>Tu sors un vrai site avec le logiciel IA partenaire, sans coder.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>3</b></span><div class="carte jour-carte"><h3>Le rendre pro</h3><p>Textes, photos, version mobile, mise en ligne.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>4</b></span><div class="carte jour-carte"><h3>Ton prix</h3><p>Tu fixes le prix du site et celui de l’abonnement mensuel.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>5</b></span><div class="carte jour-carte"><h3>Trouver tes prospects</h3><p>Tu fais la liste des commerces à contacter autour de toi.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>6</b></span><div class="carte jour-carte"><h3>La maquette qui vend</h3><p>Tu prépares le site d’un prospect avant même de l’appeler.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>7</b></span><div class="carte jour-carte"><h3>Tes premiers messages</h3><p>Tu contactes tes prospects avec les messages fournis.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>8</b></span><div class="carte jour-carte"><h3>Les relances</h3><p>Tu relances et tu décroches tes premiers rendez-vous.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>9</b></span><div class="carte jour-carte"><h3>Le rendez-vous</h3><p>Tu montres la maquette et tu annonces ton prix.</p></div></li>
+        <li class="jour"><span class="jour-num"><small>Jour</small><b>10</b></span><div class="carte jour-carte"><h3>Le premier oui</h3><p>Tu signes, tu encaisses l’acompte et tu livres.</p></div></li>
+      </ol>
+    </div>
+    <p class="a-valider"><span class="todo">[À VALIDER avec le client : les 10 jours doivent coller au workshop de l’espace membre]</span></p>
+    <div class="relance">
+      <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 5. Ce que tu reçois ======================= -->
+<section class="sec" id="recois">
+  <div class="wrap">
+    <div class="carte recois">
+      <div class="tete">
+        <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+        <h2 class="titre">Tout ce qu’il faut pour vendre ton <span class="aplat">premier site.</span></h2>
+      </div>
+      <ul class="recois-liste">
+        <li><span class="num">01</span><div><h3>L’espace membre</h3><p>Chaque jour, une vidéo et une action à faire.</p></div></li>
+        <li><span class="num">02</span><div><h3>Le logiciel IA partenaire</h3><p>C’est avec lui que tu fabriques chaque site.</p></div></li>
+        <li><span class="num">03</span><div><h3>Les messages et les scripts</h3><p>Ce que tu envoies aux commerces et ce que tu leur dis au téléphone, mot pour mot.</p></div></li>
+        <li><span class="num">04</span><div><h3>Le coach IA sur WhatsApp</h3><p>Il te répond jour et nuit quand tu bloques. <span class="todo">[À VALIDER]</span></p></div></li>
+      </ul>
+      <div class="prix">
+        <h3 class="titre">Le programme&nbsp;? <span class="aplat">Offert.</span></h3>
+        <p class="tarif"><s aria-label="Au lieu de 1 500 euros">1&nbsp;500&nbsp;€</s> <b>0&nbsp;€</b></p>
+        <p>Tu paies juste le logiciel IA partenaire, le prix d’un resto. Le détail, on te le donne au téléphone.</p>
+        <div class="relance">
+          <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 6. Qui est … ======================= -->
+<section class="sec" id="qui">
+  <div class="wrap">
+    <div class="qui">
+      <figure class="photo" id="photoCreateur">
+        <span class="todo">[À FOURNIR : une vraie photo du créateur, portrait 4:5]</span>
+      </figure>
+      <div>
+        <svg class="barres" style="margin:0 0 20px" aria-hidden="true"><use href="#barres"/></svg>
+        <h2 class="titre">Qui est <span class="aplat" id="quiNom">[Prénom]</span></h2>
+        <p class="parcours"><span class="todo">[À FOURNIR : son parcours en 3 phrases, validé par lui. Aucun montant.]</span></p>
+        <!-- Témoignages : seulement de vrais élèves, sur leur premier site vendu, sans montant, avec leur accord. Sinon, rien. -->
+        <div class="relance">
+          <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 7. Pour qui ======================= -->
+<section class="sec" id="pour-qui">
+  <div class="wrap">
+    <div class="tete">
+      <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+      <h2 class="titre">C’est pour ceux qui veulent s’y mettre <span class="aplat">pour de vrai.</span></h2>
+    </div>
+    <div class="pour-qui">
+      <div class="carte oui">
+        <h3>C’est pour toi si</h3>
+        <ul>
+          <li><span class="marque-oui"><svg aria-hidden="true"><use href="#coche"/></svg></span>Tu es étudiant, en alternance ou dans un job que tu veux quitter.</li>
+          <li><span class="marque-oui"><svg aria-hidden="true"><use href="#coche"/></svg></span>Tu n’as jamais codé, et tu n’as jamais vendu.</li>
+          <li><span class="marque-oui"><svg aria-hidden="true"><use href="#coche"/></svg></span>Tu acceptes de décrocher ton téléphone et d’aller voir des commerçants.</li>
+        </ul>
+      </div>
+      <div class="carte non">
+        <h3>Ce n’est pas pour toi si</h3>
+        <ul>
+          <li><span class="marque-non"><svg aria-hidden="true"><use href="#croix"/></svg></span>Tu veux des résultats sans bosser.</li>
+          <li><span class="marque-non"><svg aria-hidden="true"><use href="#croix"/></svg></span>Tu attends que les clients viennent tout seuls.</li>
+          <li><span class="marque-non"><svg aria-hidden="true"><use href="#croix"/></svg></span>Tu abandonnes dès qu’un commerçant dit non.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="relance">
+      <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 8. Comment ça se passe ======================= -->
+<section class="sec" id="comment">
+  <div class="wrap">
+    <div class="tete">
+      <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+      <h2 class="titre">Ça commence par <span class="aplat">une minute.</span></h2>
+    </div>
+    <ol class="etapes">
+      <li class="carte etape"><span class="n">1</span><p>Tu remplis le formulaire.</p></li>
+      <li class="carte etape forte"><span class="n">2</span><p>Quelqu’un de l’équipe t’appelle dans les 10&nbsp;minutes.</p></li>
+      <li class="carte etape"><span class="n">3</span><p>Tu reçois ton accès et tu attaques le jour&nbsp;1.</p></li>
+    </ol>
+
+    <div class="relance">
+      <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+      <p class="rassure"><span class="point"></span>Tu laisses tes infos, l’équipe t’appelle dans les 10&nbsp;minutes.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 9. Questions ======================= -->
+<section class="sec" id="questions">
+  <div class="wrap">
+    <div class="tete">
+      <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+      <h2 class="titre">Tes <span class="aplat">questions.</span></h2>
+    </div>
+    <div class="faq">
+      <details><summary>Je ne sais pas coder, c’est grave&nbsp;?<span class="plus" aria-hidden="true"></span></summary><p class="reponse">Non. Les sites se font avec l’IA, sans écrire de code.</p></details>
+      <details><summary>Combien ça coûte&nbsp;?<span class="plus" aria-hidden="true"></span></summary><p class="reponse">Le programme est offert. Tu paies juste le logiciel IA partenaire, le prix d’un resto. Le détail, on te le donne au téléphone.</p></details>
+      <details><summary>Combien de temps par jour&nbsp;?<span class="plus" aria-hidden="true"></span></summary><p class="reponse"><span class="todo">[À VALIDER : une à deux heures par jour pendant 10 jours]</span></p></details>
+      <details><summary>Il me faut une entreprise&nbsp;?<span class="plus" aria-hidden="true"></span></summary><p class="reponse">Pas pour commencer. Pour facturer ton premier client, oui&nbsp;: un statut simple, comme la micro-entreprise, suffit. On te montre comment faire.</p></details>
+      <details><summary>C’est garanti&nbsp;?<span class="plus" aria-hidden="true"></span></summary><p class="reponse">Non. On te donne tout pour y arriver, mais c’est toi qui fais le travail.</p></details>
+      <details><summary>Qui va m’appeler&nbsp;?<span class="plus" aria-hidden="true"></span></summary><p class="reponse">Un membre de l’équipe ACE Club, dans les 10&nbsp;minutes. Il répond à tes questions et t’ouvre ton accès.</p></details>
+    </div>
+    <div class="relance">
+      <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 10. Fin ======================= -->
+<section class="sec" id="fin">
+  <div class="wrap">
+    <div class="carte finale">
+      <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+      <h2 class="titre">Dans 10 jours, ton premier site peut être <span class="aplat">vendu.</span></h2>
+      <div class="relance">
+        <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+        <p class="rassure"><span class="point"></span>Tu laisses tes infos, l’équipe t’appelle dans les 10&nbsp;minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <span class="logo"><svg viewBox="-2 -2 253.4 81" role="img" aria-label="ACE Club"><use href="#logo-ace"/></svg></span>
+    <nav aria-label="Pages légales">
+      <a data-lien="mentions" href="legal.html#mentions">Mentions légales</a><span aria-hidden="true">·</span>
+      <a data-lien="cgv" href="legal.html#cgv">CGV</a><span aria-hidden="true">·</span>
+      <a data-lien="confidentialite" href="legal.html#confidentialite">Confidentialité</a>
+    </nav>
+    <p class="avert">Les résultats dépendent de ton travail. Aucun résultat n’est garanti.</p>
+    <p class="meta">Ce site ne fait pas partie du site web Facebook ou de Meta Platforms, Inc., ni de TikTok ou de ByteDance Ltd. Il n’est en aucune façon approuvé par Facebook, Instagram ou TikTok. Facebook et Instagram sont des marques déposées de Meta Platforms, Inc. TikTok est une marque déposée de ByteDance Ltd.</p>
+    <p class="annee">ACE Club • 2026</p>
+  </div>
+</footer>
+
+<!-- Formulaire en overlay : tous les boutons l'ouvrent (#formulaire dans l'adresse aussi) -->
+<div class="overlay" id="overlay" hidden>
+  <div class="modal carte" id="formulaire" role="dialog" aria-modal="true" aria-labelledby="modalTitre" tabindex="-1">
+    <button type="button" class="modal-fermer" id="modalFermer" aria-label="Fermer le formulaire"><svg aria-hidden="true"><use href="#croix"/></svg></button>
+    <svg class="barres" style="margin:0 0 16px" aria-hidden="true"><use href="#barres"/></svg>
+    <h2 class="titre modal-titre" id="modalTitre">L’équipe t’appelle dans les <span class="aplat">10 minutes.</span></h2>
+      <form id="form" novalidate>
+        <div class="champs">
+          <div class="champ">
+            <label for="firstName">Prénom</label>
+            <input class="saisie" type="text" id="firstName" name="firstName" autocomplete="given-name" maxlength="80" required>
+          </div>
+          <div class="champ">
+            <label for="lastName">Nom</label>
+            <input class="saisie" type="text" id="lastName" name="lastName" autocomplete="family-name" maxlength="80" required>
+          </div>
+          <div class="champ large">
+            <label for="phone">Téléphone</label>
+            <div class="tel">
+              <select class="saisie" id="country" name="country" aria-label="Indicatif du pays"></select>
+              <input class="saisie" type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="tel" placeholder="6 12 34 56 78" maxlength="20" required>
+            </div>
+            <p class="indice" id="telApercu"></p>
+          </div>
+          <div class="champ large">
+            <label for="email">Email</label>
+            <input class="saisie" type="email" id="email" name="email" autocomplete="email" inputmode="email" maxlength="160" placeholder="ton@email.com" required>
+          </div>
+          <fieldset class="champ large">
+            <legend>Ta situation aujourd’hui</legend>
+            <div class="choix" id="situation">
+              <label><input type="radio" name="situation" value="Étudiant">Étudiant</label>
+              <label><input type="radio" name="situation" value="Alternant">Alternant</label>
+              <label><input type="radio" name="situation" value="Salarié">Salarié</label>
+              <label><input type="radio" name="situation" value="Sans emploi">Sans emploi</label>
+              <label><input type="radio" name="situation" value="Indépendant">Indépendant</label>
+              <label><input type="radio" name="situation" value="Autre">Autre</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <label class="consent" id="consentBloc">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>J’accepte d’être appelé par l’équipe ACE Club. Les appels peuvent être enregistrés. <a data-lien="confidentialite" href="legal.html#confidentialite" target="_blank" rel="noopener">Politique de confidentialité</a></span>
+        </label>
+
+        <input type="hidden" id="h_ref"><input type="hidden" id="h_utm_source"><input type="hidden" id="h_utm_medium">
+        <input type="hidden" id="h_utm_campaign"><input type="hidden" id="h_utm_content"><input type="hidden" id="h_utm_term">
+        <div class="leurre" aria-hidden="true"><label for="company">Société</label><input type="text" id="company" name="company" tabindex="-1" autocomplete="off"></div>
+
+        <p class="erreur" id="erreur" role="alert" hidden></p>
+        <button type="submit" class="bouton" id="envoyer">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></button>
+        <p class="avert">Les résultats dépendent de ton travail. Aucun résultat n’est garanti.</p>
+      </form>
+  </div>
+</div>
+
+<!-- Barre fixe mobile : après l'ouverture, cachée quand le formulaire est ouvert -->
+<div class="barre-mobile" id="barreMobile">
+  <a class="bouton" href="#formulaire">Je veux vendre mon premier site <span class="fleche"><svg><use href="#fleche"/></svg></span></a>
+</div>
+
+<script src="reglages.js"></script>
+<script>
+/* Indicatifs téléphoniques (repris des templates). Le numéro part au
+   format E.164 (06 12 34 56 78 + France -> +33612345678). */
+var PAYS = [
+  ['FR','France','33'],        ['BE','Belgique','32'],      ['CH','Suisse','41'],
+  ['LU','Luxembourg','352'],   ['MC','Monaco','377'],       ['CA','Canada','1'],
+  ['US','États-Unis','1'],     ['MA','Maroc','212'],        ['DZ','Algérie','213'],
+  ['TN','Tunisie','216'],      ['SN','Sénégal','221'],      ['CI','Côte d\'Ivoire','225'],
+  ['CM','Cameroun','237'],     ['CD','RD Congo','243'],     ['CG','Congo','242'],
+  ['GA','Gabon','241'],        ['ML','Mali','223'],         ['BF','Burkina Faso','226'],
+  ['NE','Niger','227'],        ['TG','Togo','228'],         ['BJ','Bénin','229'],
+  ['GN','Guinée','224'],       ['MG','Madagascar','261'],   ['MU','Maurice','230'],
+  ['RE','La Réunion','262'],   ['GP','Guadeloupe','590'],   ['MQ','Martinique','596'],
+  ['GF','Guyane','594'],       ['PF','Polynésie fr.','689'],['NC','Nouvelle-Calédonie','687'],
+  ['HT','Haïti','509'],        ['ES','Espagne','34'],       ['PT','Portugal','351'],
+  ['IT','Italie','39'],        ['DE','Allemagne','49'],     ['AT','Autriche','43'],
+  ['NL','Pays-Bas','31'],      ['GB','Royaume-Uni','44'],   ['IE','Irlande','353'],
+  ['DK','Danemark','45'],      ['SE','Suède','46'],         ['NO','Norvège','47'],
+  ['FI','Finlande','358'],     ['PL','Pologne','48'],       ['RO','Roumanie','40'],
+  ['GR','Grèce','30'],         ['TR','Turquie','90'],       ['IL','Israël','972'],
+  ['AE','Émirats arabes unis','971'], ['SA','Arabie saoudite','966'], ['QA','Qatar','974'],
+  ['EG','Égypte','20'],        ['ZA','Afrique du Sud','27'],['NG','Nigéria','234'],
+  ['AO','Angola','244'],       ['BW','Botswana','267'],     ['BI','Burundi','257'],
+  ['CV','Cap-Vert','238'],     ['KM','Comores','269'],      ['DJ','Djibouti','253'],
+  ['ER','Érythrée','291'],     ['SZ','Eswatini','268'],     ['ET','Éthiopie','251'],
+  ['GM','Gambie','220'],       ['GH','Ghana','233'],        ['GQ','Guinée équatoriale','240'],
+  ['GW','Guinée-Bissau','245'],['KE','Kenya','254'],        ['LS','Lesotho','266'],
+  ['LR','Liberia','231'],      ['LY','Libye','218'],        ['MW','Malawi','265'],
+  ['MR','Mauritanie','222'],   ['MZ','Mozambique','258'],   ['NA','Namibie','264'],
+  ['UG','Ouganda','256'],      ['CF','Centrafrique','236'], ['RW','Rwanda','250'],
+  ['ST','Sao Tomé-et-Principe','239'], ['SC','Seychelles','248'], ['SL','Sierra Leone','232'],
+  ['SO','Somalie','252'],      ['SD','Soudan','249'],       ['SS','Soudan du Sud','211'],
+  ['TZ','Tanzanie','255'],     ['TD','Tchad','235'],        ['ZM','Zambie','260'],
+  ['ZW','Zimbabwe','263'],
+  ['BR','Brésil','55'],        ['MX','Mexique','52'],       ['AU','Australie','61'],
+  ['TH','Thaïlande','66'],     ['SG','Singapour','65'],     ['ID','Indonésie','62'],
+  ['CN','Chine','86'],         ['JP','Japon','81'],         ['KR','Corée du Sud','82'],
+  ['IN','Inde','91'],          ['PK','Pakistan','92'],      ['BD','Bangladesh','880'],
+  ['LK','Sri Lanka','94'],     ['NP','Népal','977'],        ['VN','Viêt Nam','84'],
+  ['PH','Philippines','63'],   ['MY','Malaisie','60'],      ['KH','Cambodge','855'],
+  ['LA','Laos','856'],         ['MM','Myanmar','95'],       ['HK','Hong Kong','852'],
+  ['TW','Taïwan','886'],       ['MO','Macao','853'],        ['MN','Mongolie','976'],
+  ['BN','Brunei','673'],       ['TL','Timor oriental','670'],['MV','Maldives','960'],
+  ['BT','Bhoutan','975'],      ['AF','Afghanistan','93'],   ['IR','Iran','98'],
+  ['IQ','Irak','964'],         ['JO','Jordanie','962'],     ['LB','Liban','961'],
+  ['SY','Syrie','963'],        ['KW','Koweït','965'],       ['BH','Bahreïn','973'],
+  ['OM','Oman','968'],         ['YE','Yémen','967'],        ['PS','Palestine','970'],
+  ['KZ','Kazakhstan','7'],     ['UZ','Ouzbékistan','998'],  ['KG','Kirghizistan','996'],
+  ['TJ','Tadjikistan','992'],  ['TM','Turkménistan','993'], ['AZ','Azerbaïdjan','994'],
+  ['AM','Arménie','374'],      ['GE','Géorgie','995'],      ['CY','Chypre','357']
+];
+var ZERO_GARDE = ['225', '39'];
+function versE164(indicatif, brut){
+  var chiffres = String(brut).replace(/\D/g, '');
+  if (ZERO_GARDE.indexOf(String(indicatif)) === -1) chiffres = chiffres.replace(/^0+/, '');
+  return chiffres ? '+' + indicatif + chiffres : '';
+}
+function uuid(){
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
+    var r = Math.random() * 16 | 0;
+    return (c === 'x' ? r : (r & 3 | 8)).toString(16);
+  });
+}
+
+function envoyerLead(lead){
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY){
+    console.error('Supabase non configuré : renseigner SUPABASE_URL et SUPABASE_ANON_KEY dans reglages.js.');
+    return Promise.reject(new Error('config'));
+  }
+  var corps = {
+    first_name: lead.firstName,
+    last_name:  lead.lastName,
+    email:      lead.email,
+    phone:      lead.phone,
+    page_url:   lead.pageUrl,
+    source:     SOURCE
+  };
+  if (COLONNES_SUIVI) for (var k in lead.suivi) corps[k] = lead.suivi[k] || null;
+  if (COLONNE_SITUATION) corps.situation = lead.situation;
+  return fetch(SUPABASE_URL + '/rest/v1/leads', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify(corps)
+  }).then(function(r){
+    if (r.ok) return;
+    return r.text().then(function(t){
+      console.error('Supabase a refusé le lead :', r.status, t);
+      throw new Error('supabase');
+    });
+  });
+}
+
+(function(){
+  /* ---------------- Pixels (seulement s'ils sont renseignés) ---------------- */
+  if (PIXELS.meta){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXELS.meta); fbq('track', 'PageView');
+  }
+  if (PIXELS.tiktok){
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+    ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+    for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+    ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+    ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    var o=d.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+    ttq.load(PIXELS.tiktok);ttq.page();}(window,document,'ttq');
+  }
+  function conversion(idLead){
+    if (window.fbq) fbq('track', 'Lead', {}, { eventID: 'lead-' + idLead });
+    if (window.ttq) ttq.track('SubmitForm');
+  }
+
+  /* ---------------- Liens légaux ---------------- */
+  document.querySelectorAll('[data-lien]').forEach(function(a){
+    var url = LIENS[a.getAttribute('data-lien')];
+    if (url) a.href = url;
+  });
+
+  /* ---------------- Le créateur ---------------- */
+  var nomComplet = [CREATEUR.prenom, CREATEUR.nom].filter(Boolean).join(' ');
+  if (nomComplet){
+    document.getElementById('profilNom').textContent = nomComplet;
+    document.getElementById('profilLegende').textContent = 'Fondateur d’ACE Club';
+  }
+  if (CREATEUR.prenom) document.getElementById('quiNom').textContent = CREATEUR.prenom + ' ?';
+  if (CREATEUR.photo){
+    var av = document.getElementById('avatar');
+    av.innerHTML = '';
+    var im = new Image(); im.src = CREATEUR.photo; im.alt = nomComplet || 'Le fondateur d’ACE Club'; im.width = 50; im.height = 50;
+    av.appendChild(im);
+  }
+
+  /* ---------------- Suivi des sources ----------------
+     `?ref=nom` (ou `?src=nom`, ou le lien court `/nom` servi par
+     vercel.json) et les UTM, retenus 30 jours dans le navigateur. */
+  var CLES = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  function suiviDeLAdresse(){
+    var q = new URLSearchParams(location.search), s = {}, trouve = false;
+    CLES.forEach(function(k){ var v = q.get(k); if (v){ s[k] = v.slice(0, 120); trouve = true; } });
+    if (!s.ref){
+      var alt = q.get('src');
+      var m = location.pathname.match(/^\/([A-Za-z0-9_-]{1,40})\/?$/);
+      if (alt) s.ref = alt.slice(0, 120);
+      else if (m && m[1] !== 'index') s.ref = m[1].toLowerCase();
+      if (s.ref) trouve = true;
+    }
+    return trouve ? s : null;
+  }
+  function suivi(){
+    var s = suiviDeLAdresse();
+    if (s){
+      try { localStorage.setItem('origine', JSON.stringify({ suivi:s, jusqua: Date.now() + 30*24*3600*1000 })); } catch(e){}
+      return s;
+    }
+    try {
+      var g = JSON.parse(localStorage.getItem('origine') || 'null');
+      if (g && g.jusqua > Date.now() && g.suivi) return g.suivi;
+    } catch(e){}
+    return {};
+  }
+  var SUIVI = suivi();
+  CLES.forEach(function(k){ document.getElementById('h_' + k).value = SUIVI[k] || ''; });
+
+  /* Le compteur de visites de l'onglet Sources du CRM : un identifiant au
+     hasard gardé dans le navigateur, ni nom ni adresse IP. Les robots et
+     les essais en local ne comptent pas. */
+  (function(){
+    if (!SUPABASE_URL || navigator.webdriver || /Headless/.test(navigator.userAgent)) return;
+    if (/^(localhost|127\.)/.test(location.hostname)) return;
+    var id;
+    try {
+      id = localStorage.getItem('visiteur');
+      if (!id){ id = uuid(); localStorage.setItem('visiteur', id); }
+    } catch(e){ id = uuid(); }
+    fetch(SUPABASE_URL + '/rest/v1/rpc/visite_compter', {
+      method: 'POST', keepalive: true,
+      headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY },
+      body: JSON.stringify({ p_visiteur: id, p_origine: SUIVI.utm_source || SUIVI.ref || 'direct' })
+    }).catch(function(){});
+  })();
+
+  /* ---------------- Vidéo : image d'attente, lecteur au clic ---------------- */
+  var cadre = document.getElementById('video');
+  var lancer = document.getElementById('videoLancer');
+  var aUneVideo = !!(VIDEO.youtube || VIDEO.vimeo || VIDEO.fichier);
+  if (VIDEO.affiche){
+    var img = new Image();
+    img.src = VIDEO.affiche; img.alt = ''; img.decoding = 'async'; img.fetchPriority = 'high';
+    cadre.insertBefore(img, lancer);
+  }
+  if (aUneVideo) document.getElementById('videoTodo').remove();
+  else lancer.setAttribute('aria-label', 'Vidéo à venir');
+  lancer.addEventListener('click', function(){
+    if (!aUneVideo) return;
+    var el;
+    if (VIDEO.fichier){
+      el = document.createElement('video');
+      el.src = VIDEO.fichier; el.controls = true; el.autoplay = true; el.playsInline = true;
+      if (VIDEO.affiche) el.poster = VIDEO.affiche;
+    } else {
+      el = document.createElement('iframe');
+      el.allow = 'autoplay; fullscreen; picture-in-picture';
+      el.allowFullscreen = true;
+      el.title = 'Vidéo de présentation ACE Club';
+      el.src = VIDEO.youtube
+        ? 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(VIDEO.youtube) + '?autoplay=1&rel=0&playsinline=1'
+        : 'https://player.vimeo.com/video/' + encodeURIComponent(VIDEO.vimeo) + '?autoplay=1&dnt=1';
+    }
+    cadre.innerHTML = '';
+    cadre.appendChild(el);
+    if (el.focus) el.focus();
+  });
+
+  /* ---------------- Défilement : rail des 10 jours + barre mobile ----------------
+     Calculés au défilement (plus fiable qu'un IntersectionObserver sur
+     les lancers rapides). */
+  var rail = document.getElementById('rail');
+  var jours = rail.querySelectorAll('.jour');
+  var barre = document.getElementById('barreMobile');
+  var repere = document.getElementById('actionOuverture');
+  var overlay = document.getElementById('overlay');
+  var attente = false;
+  function maj(){
+    attente = false;
+    var h = window.innerHeight, ligne = h * 0.6;
+    var r = rail.getBoundingClientRect();
+    var avance = Math.max(0, Math.min(1, (ligne - r.top - 20) / (r.height - 40)));
+    rail.style.setProperty('--avance', avance.toFixed(4));
+    jours.forEach(function(j){ j.classList.toggle('atteint', j.getBoundingClientRect().top + 30 < ligne); });
+    var passe = repere.getBoundingClientRect().bottom < 0;
+    barre.classList.toggle('visible', passe && overlay.hidden);
+  }
+  window.addEventListener('scroll', function(){ if (!attente){ attente = true; requestAnimationFrame(maj); } }, { passive:true });
+  window.addEventListener('resize', maj);
+  maj();
+
+  /* ---------------- Overlay du formulaire ----------------
+     Tous les liens #formulaire l'ouvrent, Échap / la croix / le fond le
+     ferment, le focus reste dedans. #formulaire dans l'adresse l'ouvre
+     à l'arrivée. */
+  var modal = document.getElementById('formulaire');
+  var declencheur = null;
+  function ouvrir(){
+    if (!overlay.hidden) return;
+    declencheur = document.activeElement;
+    overlay.hidden = false;
+    document.documentElement.classList.add('modal-ouverte');
+    requestAnimationFrame(function(){ overlay.classList.add('ouvert'); });
+    modal.focus({ preventScroll: true });
+    maj();
+  }
+  function fermer(){
+    if (overlay.hidden) return;
+    overlay.classList.remove('ouvert');
+    overlay.hidden = true;
+    document.documentElement.classList.remove('modal-ouverte');
+    if (location.hash === '#formulaire') history.replaceState(null, '', location.pathname + location.search);
+    if (declencheur && declencheur.focus) declencheur.focus({ preventScroll: true });
+    maj();
+  }
+  document.querySelectorAll('a[href="#formulaire"]').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); ouvrir(); });
+  });
+  document.getElementById('modalFermer').addEventListener('click', fermer);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) fermer(); });
+  document.addEventListener('keydown', function(e){
+    if (overlay.hidden) return;
+    if (e.key === 'Escape'){ fermer(); return; }
+    if (e.key !== 'Tab') return;
+    var f = modal.querySelectorAll('button:not([disabled]), input:not([type="hidden"]):not([tabindex="-1"]), select, a[href]');
+    f = Array.prototype.filter.call(f, function(el){ return el.offsetParent !== null; });
+    if (!f.length) return;
+    var premierEl = f[0], dernier = f[f.length - 1];
+    if (e.shiftKey && (document.activeElement === premierEl || document.activeElement === modal)){ e.preventDefault(); dernier.focus(); }
+    else if (!e.shiftKey && document.activeElement === dernier){ e.preventDefault(); premierEl.focus(); }
+  });
+  if (location.hash === '#formulaire') ouvrir();
+
+  /* ---------------- Formulaire ---------------- */
+  var form   = document.getElementById('form');
+  var sel    = document.getElementById('country');
+  var tel    = document.getElementById('phone');
+  var apercu = document.getElementById('telApercu');
+  var erreur = document.getElementById('erreur');
+  var bouton = document.getElementById('envoyer');
+  var libelleBouton = bouton.innerHTML;
+  var choix  = document.getElementById('situation');
+  var CHAMPS = ['firstName', 'lastName', 'phone', 'email'];
+  var envoiEnCours = false;
+
+  PAYS.forEach(function(p){
+    var o = document.createElement('option');
+    o.value = p[2];
+    o.textContent = p[0] + ' +' + p[2];
+    o.setAttribute('data-pays', p[1]);
+    sel.appendChild(o);
+  });
+  sel.value = '33';
+
+  function e164(){ return versE164(sel.value, tel.value); }
+  function majApercu(){
+    var o = sel.options[sel.selectedIndex];
+    var n = e164();
+    apercu.textContent = (o ? o.getAttribute('data-pays') : '') + ' · ' + (n || 'saisis ton numéro sans l’indicatif');
+  }
+  sel.addEventListener('change', majApercu);
+  tel.addEventListener('input', majApercu);
+  majApercu();
+
+  function situation(){
+    var c = form.querySelector('input[name="situation"]:checked');
+    return c ? c.value : '';
+  }
+  function montrer(msg){ erreur.textContent = msg; erreur.hidden = false; }
+  CHAMPS.forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){ this.classList.remove('invalide'); });
+  });
+  choix.addEventListener('change', function(){ choix.classList.remove('invalide'); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (envoiEnCours) return;
+    erreur.hidden = true;
+
+    var ok = true, premier = null;
+    CHAMPS.forEach(function(id){
+      var el = document.getElementById(id);
+      var v = el.value.trim();
+      var bon = !!v;
+      if (id === 'email' && bon) bon = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+      if (id === 'phone' && bon){ var d = e164().replace(/\D/g, ''); bon = d.length >= 8 && d.length <= 15; }
+      el.classList.toggle('invalide', !bon);
+      if (!bon){ ok = false; premier = premier || el; }
+    });
+    choix.classList.toggle('invalide', !situation());
+    if (!ok){ montrer('Vérifie tes informations : tous les champs sont nécessaires, avec un email et un numéro valides.'); premier.focus(); return; }
+    if (!situation()){ montrer('Dis-nous où tu en es aujourd’hui.'); return; }
+
+    /* Contrôlée en dernier, et le bouton reste actif : sur mobile, un bouton
+       grisé sur lequel on tape sans effet n'explique rien. */
+    var bloc = document.getElementById('consentBloc');
+    if (!document.getElementById('consent').checked){
+      bloc.classList.add('manque');
+      montrer('Coche la case pour qu’on puisse t’appeler.');
+      return;
+    }
+    bloc.classList.remove('manque');
+
+    var s = {};
+    CLES.forEach(function(k){ s[k] = document.getElementById('h_' + k).value || ''; });
+    var q = new URLSearchParams();
+    CLES.forEach(function(k){ if (s[k]) q.set(k, s[k]); });
+    var lead = {
+      firstName: document.getElementById('firstName').value.trim(),
+      lastName:  document.getElementById('lastName').value.trim(),
+      email:     document.getElementById('email').value.trim(),
+      phone:     e164(),
+      situation: situation(),
+      // Le ref et les UTM retenus partent avec l'adresse, même si la visite actuelle n'en a plus.
+      pageUrl:   (location.origin + location.pathname + (q.toString() ? '?' + q.toString() : '')).slice(0, 300),
+      suivi:     s
+    };
+    var leurre = document.getElementById('company').value.trim();
+
+    // Bouton bloqué pendant l'envoi : pas de doublon.
+    envoiEnCours = true;
+    bouton.setAttribute('aria-busy', 'true');
+    bouton.disabled = true;
+    bouton.textContent = 'Envoi en cours…';
+
+    // Champ leurre rempli = robot : on simule un succès sans rien enregistrer.
+    (leurre ? Promise.resolve() : envoyerLead(lead))
+      .then(function(){
+        if (!leurre) conversion(uuid());
+        try { sessionStorage.setItem('ace-prenom', lead.firstName); } catch(e){}
+        // Laisse partir l'événement du pixel avant de changer de page.
+        setTimeout(function(){ location.href = 'merci.html'; }, PIXELS.meta || PIXELS.tiktok ? 400 : 0);
+      })
+      .catch(function(err){
+        montrer(err && err.message === 'config'
+          ? 'Le formulaire n’est pas encore relié à la base (configuration Supabase manquante).'
+          : 'L’envoi a échoué. Réessaie dans un instant.');
+        envoiEnCours = false;
+        bouton.removeAttribute('aria-busy');
+        bouton.disabled = false;
+        bouton.innerHTML = libelleBouton;
+      });
+  });
+})();
+</script>
+</body>
+</html>

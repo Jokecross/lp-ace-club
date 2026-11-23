@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bien reçu · ACE Club</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#07090F">
+<link rel="icon" type="image/png" href="img/ace-favicon.png">
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ace.css">
+<style>
+body{min-height:100vh;display:flex;flex-direction:column}
+main{flex:1;display:flex;align-items:center;padding:64px 0}
+.merci{max-width:720px;margin:0 auto;padding:56px 48px;text-align:center}
+.merci h1{font-size:clamp(44px, 7vw, 76px);line-height:1.02}
+.merci .texte{max-width:520px;margin:24px auto 0;font-size:19px;line-height:1.6;color:var(--color-text-2)}
+.merci .texte strong{color:var(--color-text);font-weight:650}
+.suite{display:flex;flex-direction:column;gap:10px;max-width:460px;margin:36px auto 0;text-align:left}
+.suite li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--color-line);border-radius:12px;font-size:16px;font-weight:600;color:var(--color-text-2)}
+.suite .n{position:relative;isolation:isolate;display:grid;place-items:center;width:38px;height:32px;font-family:var(--font-display);font-weight:800;font-stretch:112%;font-size:15px;color:var(--color-accent)}
+.suite .n::before{content:"";position:absolute;inset:0;z-index:-1;border:1px solid rgba(124,156,255,.45);border-radius:6px;transform:skewX(var(--skew))}
+.suite .fait{color:var(--color-text-3)}
+.suite .fait .n{color:var(--color-on-accent)}
+.suite .fait .n::before{background:var(--color-text-3);border-color:var(--color-text-3)}
+.suite .fait .n svg{width:16px;height:16px;fill:none;stroke:var(--color-on-accent);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.suite .maintenant{border-color:rgba(124,156,255,.55);background:var(--color-accent-soft);color:var(--color-text)}
+.suite .maintenant .n{color:var(--color-on-accent)}
+.suite .maintenant .n::before{background:var(--color-accent);border-color:var(--color-accent)}
+.suite .maintenant .rassure{display:flex;margin-top:2px;font-size:13px;font-weight:500}
+@media (max-width:760px){
+  main{padding:40px 0}
+  .merci{padding:40px 20px}
+  .merci .texte{font-size:17px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="ACE Club, retour à la page"><svg viewBox="-2 -2 253.4 81" aria-hidden="true"><use href="#logo-ace"/></svg></a>
+  </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="logo-ace" viewBox="-2 -2 253.4 81"><g transform="translate(16.37 0) skewX(-12)"><path fill-rule="evenodd" fill="#F2F4F8" d="M165.75 59.25 L165.70 71.30 L165.95 72.20 L166.40 72.90 L167.10 73.50 L168.15 73.90 L229.25 73.95 L230.35 73.75 L231.20 73.25 L231.90 72.40 L232.20 71.60 L232.25 59.55 L232.00 58.65 L231.55 57.95 L230.85 57.35 L229.80 56.95 L168.70 56.90 L167.60 57.10 L166.75 57.60 L166.05 58.45Z M165.75 31.75 L165.70 43.90 L165.95 44.80 L166.40 45.50 L167.10 46.10 L168.15 46.50 L229.25 46.55 L230.35 46.35 L231.20 45.85 L231.90 45.00 L232.20 44.20 L232.25 32.05 L232.00 31.15 L231.55 30.45 L230.85 29.85 L229.80 29.45 L168.70 29.40 L167.60 29.60 L166.75 30.10 L166.05 30.95Z M27.65 2.45 L26.75 3.30 L26.20 4.45 L2.30 71.95 L2.15 73.30 L2.50 74.40 L3.55 75.50 L4.20 75.80 L5.15 75.95 L17.50 75.95 L18.45 75.80 L19.10 75.50 L19.95 74.70 L20.40 73.85 L38.45 21.10 L56.70 74.40 L57.75 75.50 L58.40 75.80 L59.35 75.95 L71.70 75.95 L72.65 75.80 L73.30 75.50 L74.00 74.90 L74.55 73.95 L74.70 73.30 L74.60 72.10 L50.30 3.60 L49.20 2.45 L48.55 2.15 L47.60 2.00 L29.25 2.00 L28.30 2.15Z M106.70 1.05 L104.20 1.90 L102.80 2.15 L101.30 2.90 L100.20 3.20 L96.20 5.20 L93.20 7.20 L88.45 11.45 L85.40 15.20 L84.80 16.40 L83.30 18.45 L83.00 19.30 L82.15 20.70 L81.80 21.90 L81.30 22.70 L80.90 24.30 L80.15 25.95 L78.95 31.55 L78.60 35.35 L78.60 41.10 L79.05 45.90 L79.90 48.90 L80.20 50.80 L82.10 55.70 L82.80 56.75 L83.40 58.25 L86.45 62.80 L88.85 65.40 L92.50 68.80 L96.45 71.45 L98.10 72.15 L99.20 72.85 L100.00 73.05 L101.00 73.65 L102.30 73.95 L103.75 74.65 L105.55 74.95 L107.70 75.65 L113.80 76.35 L118.40 76.35 L123.20 75.90 L128.60 74.70 L129.65 74.15 L131.25 73.75 L132.65 72.95 L133.45 72.75 L137.30 70.65 L141.20 67.75 L143.85 65.15 L147.00 61.10 L148.50 58.65 L148.85 57.65 L149.65 56.35 L150.50 53.65 L150.45 52.65 L150.15 51.85 L149.10 50.75 L148.45 50.45 L147.50 50.30 L133.05 50.35 L132.00 50.75 L131.30 51.35 L129.70 53.70 L127.35 56.10 L125.10 57.70 L122.60 58.90 L119.25 59.80 L116.35 60.00 L112.50 59.80 L109.00 58.85 L106.65 57.75 L106.00 57.20 L105.35 56.90 L102.20 54.00 L100.05 51.20 L98.95 49.10 L98.60 47.75 L97.95 46.40 L96.95 40.70 L96.95 35.95 L97.85 30.60 L98.15 29.55 L98.80 28.25 L98.95 27.45 L99.55 26.60 L99.95 25.55 L101.80 23.05 L104.15 20.70 L106.45 18.95 L106.90 18.85 L108.45 17.95 L112.15 16.90 L115.50 16.65 L119.60 16.90 L123.30 17.95 L124.15 18.55 L125.40 19.05 L126.80 20.05 L129.10 22.25 L131.65 25.55 L133.05 26.20 L148.00 26.20 L149.20 25.70 L150.10 24.70 L150.45 23.60 L150.35 22.35 L149.65 20.25 L147.65 16.45 L145.85 13.80 L144.25 11.90 L140.70 8.40 L137.75 6.20 L134.10 4.05 L133.45 3.90 L132.10 3.10 L130.85 2.80 L129.90 2.25 L128.10 1.85 L126.25 1.15 L120.75 0.25 L113.35 0.10Z"/><path fill="#7C9CFF" d="M165.75 4.35 L165.70 16.40 L165.95 17.30 L166.40 18.00 L167.10 18.60 L168.15 19.00 L229.25 19.05 L230.35 18.85 L231.20 18.35 L231.90 17.50 L232.20 16.70 L232.25 4.65 L232.00 3.75 L231.55 3.05 L230.85 2.45 L229.80 2.05 L168.70 2.00 L167.60 2.20 L166.75 2.70 L166.05 3.55Z"/></g></symbol>
+  <symbol id="barres" viewBox="0 0 30 20"><g transform="skewX(-12)"><rect x="5" y="0" width="25" height="5" rx="1.2" fill="#7C9CFF"/><rect x="5" y="7.5" width="25" height="5" rx="1.2" fill="#F2F4F8" fill-opacity=".9"/><rect x="5" y="15" width="25" height="5" rx="1.2" fill="#F2F4F8" fill-opacity=".9"/></g></symbol>
+</svg>
+
+<main>
+  <div class="wrap">
+    <div class="carte merci" role="status">
+      <svg class="barres" aria-hidden="true"><use href="#barres"/></svg>
+      <h1 class="titre">Bien <span class="aplat">reçu.</span></h1>
+      <p class="texte" id="texte">Reste près de ton téléphone&nbsp;: quelqu’un de l’équipe ACE Club t’appelle dans les 10&nbsp;minutes. Si c’est un numéro inconnu, <strong>réponds, c’est nous.</strong></p>
+      <ol class="suite">
+        <li class="fait"><span class="n"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7"/></svg></span>Tu remplis le formulaire.</li>
+        <li class="maintenant"><span class="n">2</span><span>Quelqu’un de l’équipe t’appelle dans les 10&nbsp;minutes.<span class="rassure"><span class="point"></span>Garde ton téléphone près de toi</span></span></li>
+        <li><span class="n">3</span>Tu reçois ton accès et tu attaques le jour&nbsp;1.</li>
+      </ol>
+    </div>
+  </div>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <nav aria-label="Pages légales">
+      <a href="legal.html#mentions">Mentions légales</a><span aria-hidden="true">·</span>
+      <a href="legal.html#cgv">CGV</a><span aria-hidden="true">·</span>
+      <a href="legal.html#confidentialite">Confidentialité</a>
+    </nav>
+    <p class="avert">Les résultats dépendent de ton travail. Aucun résultat n’est garanti.</p>
+    <p class="annee">ACE Club • 2026</p>
+  </div>
+</footer>
+
+<script src="reglages.js"></script>
+<script>
+  /* En dehors des heures d'appel des setters (HORAIRES dans reglages.js). */
+  var hors = messageHorsHoraires();
+  if (hors){
+    document.getElementById('texte').textContent = hors;
+    var etape = document.querySelector('.suite .maintenant');
+    etape.querySelector('.rassure').lastChild.textContent = hors;
+  }
+</script>
+</body>
+</html>
