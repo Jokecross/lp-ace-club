@@ -7,8 +7,8 @@
    La clé anon est PUBLIQUE par conception (RLS : insertion seule).
    Jamais la clé service_role ici. Vide = le formulaire n'envoie rien
    et le dit. [À FOURNIR : projet Supabase du CRM ACE Club] */
-var SUPABASE_URL      = '';
-var SUPABASE_ANON_KEY = '';
+var SUPABASE_URL      = 'https://bkxuhkxcdeaqanugugpa.supabase.co';
+var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJreHVoa3hjZGVhcWFudWd1Z3BhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUzODgwMjksImV4cCI6MjExMDk2NDAyOX0.OnYg_t-V8Kdwq7npHG2C_aewMIywVHkFCb_MDMJc6pI';
 
 /* Chaque lead part avec cette source. */
 var SOURCE = 'ace-club';
