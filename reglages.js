@@ -23,7 +23,8 @@ var COLONNE_SITUATION = true;   // la base du CRM ACE Club a la colonne situatio
    [À FOURNIR : prénom, nom, photo carrée 256 × 256 en WebP] */
 var CREATEUR = { prenom: 'Oran', nom: '', photo: '' };
 
-/* La vidéo d'ouverture, 16:9, chargée au clic. Remplir UN des trois :
+/* La vidéo d'ouverture, 16:9. MP4 : lecture auto sans son + « Activer le son » ;
+   YouTube / Vimeo : lancée au clic. Remplir UN des trois :
    identifiant YouTube, identifiant Vimeo (chiffres), ou chemin d'un MP4.
    `affiche` : image d'attente WebP/AVIF 1600 × 900.
    Nouvelle vidéo = nouveau nom de fichier (cache de 7 jours). */

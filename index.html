@@ -48,6 +48,14 @@
 .video-lancer:focus-visible{outline-offset:-8px}
 /* Avec une image d’attente : le bouton à droite, pour ne pas cacher le visage */
 .video-cadre>img + .video-lancer{align-items:flex-end;padding-right:12%}
+/* MP4 : lecture auto sans son. Tout le cadre active le son, le bouton est en haut à droite */
+.video-lancer.sans-son{align-items:flex-end;justify-content:flex-start;padding:16px 22px}
+.video-lancer.sans-son .lecture{display:none}
+.son{position:relative;isolation:isolate;display:none;align-items:center;gap:10px;min-height:48px;padding:0 20px;font-weight:700;font-size:16px;line-height:1;color:var(--color-on-accent)}
+.son::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--color-accent);border-radius:9px;transform:skewX(var(--skew));transition:background-color .2s ease}
+.son svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sans-son .son{display:inline-flex}
+.sans-son:hover .son::before{background:var(--color-accent-hover)}
 .ouverture .relance{margin-top:36px}
 
 /* ============ Bandeau ============ */
@@ -226,6 +234,10 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
   .video{margin:30px -8px 0;padding:5px;border-radius:15px}
   .video-cadre{border-radius:10px}
   .video-lancer .lecture{width:76px;height:56px}
+  .video-lancer.sans-son{padding:8px 10px}
+  .son{min-height:36px;padding:0 11px;font-size:13px;gap:6px}
+  .son::before{border-radius:7px}
+  .son svg{width:17px;height:17px}
   .ouverture .relance{margin-top:28px}
   .bandeau{padding:16px 0}
   .bandeau li{font-size:18px}
@@ -313,6 +325,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
       <div class="video-cadre" id="video">
         <button type="button" class="video-lancer" id="videoLancer" aria-label="Lancer la vidéo">
           <span class="lecture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg></span>
+          <span class="son"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zM17 9.5l5 5M22 9.5l-5 5"/></svg>Activer le son</span>
           <span class="todo" id="videoTodo">[À FOURNIR : la vidéo et son image d’attente]</span>
         </button>
       </div>
@@ -802,7 +815,11 @@ function envoyerLead(lead){
     }).catch(function(){});
   })();
 
-  /* ---------------- Vidéo : image d'attente, lecteur au clic ---------------- */
+  /* ---------------- Vidéo ----------------
+     MP4 : part toute seule sans le son, en boucle, une fois la page chargée.
+     « Activer le son » (ou un appui n'importe où dessus) la remet au début
+     avec le son, sans boucle, avec les commandes. YouTube / Vimeo : lecteur
+     chargé au clic. */
   var cadre = document.getElementById('video');
   var lancer = document.getElementById('videoLancer');
   var aUneVideo = !!(VIDEO.youtube || VIDEO.vimeo || VIDEO.fichier);
@@ -813,26 +830,54 @@ function envoyerLead(lead){
   }
   if (aUneVideo) document.getElementById('videoTodo').remove();
   else lancer.setAttribute('aria-label', 'Vidéo à venir');
-  lancer.addEventListener('click', function(){
-    if (!aUneVideo) return;
-    var el;
-    if (VIDEO.fichier){
-      el = document.createElement('video');
-      el.src = VIDEO.fichier; el.controls = true; el.autoplay = true; el.playsInline = true;
-      if (VIDEO.affiche) el.poster = VIDEO.affiche;
-    } else {
-      el = document.createElement('iframe');
+
+  if (VIDEO.fichier){
+    lancer.classList.add('sans-son');
+    lancer.setAttribute('aria-label', 'Activer le son et reprendre la vidéo au début');
+    var video = document.createElement('video');
+    video.muted = true; video.defaultMuted = true; video.loop = true; video.playsInline = true;
+    video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
+    video.setAttribute('aria-label', 'Vidéo de présentation ACE Club');
+    video.preload = 'none';
+    if (VIDEO.affiche) video.poster = VIDEO.affiche;
+    cadre.insertBefore(video, lancer);
+
+    var avecSon = false;
+    var demarrer = function(){
+      if (avecSon) return;
+      video.src = VIDEO.fichier;
+      // Refusé (mode économie d'énergie…) : l'image d'attente et le bouton restent.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) video.play().catch(function(){});
+    };
+    // Après le chargement de la page, pour ne pas la ralentir.
+    if (document.readyState === 'complete') demarrer(); else window.addEventListener('load', demarrer);
+
+    lancer.addEventListener('click', function(){
+      avecSon = true;
+      if (!video.src) video.src = VIDEO.fichier;
+      video.loop = false;
+      video.muted = false; video.volume = 1;
+      try { video.currentTime = 0; } catch(e){}
+      video.controls = true;
+      lancer.remove();
+      video.play().catch(function(){});
+      video.focus({ preventScroll: true });
+    });
+  } else {
+    lancer.addEventListener('click', function(){
+      if (!aUneVideo) return;
+      var el = document.createElement('iframe');
       el.allow = 'autoplay; fullscreen; picture-in-picture';
       el.allowFullscreen = true;
       el.title = 'Vidéo de présentation ACE Club';
       el.src = VIDEO.youtube
         ? 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(VIDEO.youtube) + '?autoplay=1&rel=0&playsinline=1'
         : 'https://player.vimeo.com/video/' + encodeURIComponent(VIDEO.vimeo) + '?autoplay=1&dnt=1';
-    }
-    cadre.innerHTML = '';
-    cadre.appendChild(el);
-    if (el.focus) el.focus();
-  });
+      cadre.innerHTML = '';
+      cadre.appendChild(el);
+      el.focus();
+    });
+  }
 
   /* ---------------- Défilement : rail des 10 jours + barre mobile ----------------
      Calculés au défilement (plus fiable qu'un IntersectionObserver sur
