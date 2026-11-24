@@ -2,7 +2,7 @@
 
 ## Contenus du client
 - [ ] Prénom, nom et photo carrée du créateur → `CREATEUR` dans reglages.js (haut de page + « Qui est … »)
-- [ ] Vraie photo portrait 4:5 pour « Qui est … » (section 6)
+- [x] (24/11) Vraie photo portrait 4:5 pour « Qui est … » (section 6)
 - [ ] Son parcours en 3 phrases, validé par lui, sans montant (section 6)
 - [ ] Témoignages : seulement de vrais élèves, premier site vendu, sans montant, avec accord. Sinon rien.
 - [ ] Vidéo d'ouverture + image d'attente → `VIDEO` dans reglages.js
