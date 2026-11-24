@@ -21,13 +21,13 @@ var COLONNE_SITUATION = true;   // la base du CRM ACE Club a la colonne situatio
 
 /* Le créateur : s'affiche en haut de page et dans « Qui est … ».
    [À FOURNIR : prénom, nom, photo carrée 256 × 256 en WebP] */
-var CREATEUR = { prenom: '', nom: '', photo: '' };
+var CREATEUR = { prenom: 'Oran', nom: '', photo: '' };
 
 /* La vidéo d'ouverture, 16:9, chargée au clic. Remplir UN des trois :
    identifiant YouTube, identifiant Vimeo (chiffres), ou chemin d'un MP4.
    `affiche` : image d'attente WebP/AVIF 1600 × 900.
-   [À FOURNIR : la vidéo et son image d'attente] */
-var VIDEO = { youtube: '', vimeo: '', fichier: '', affiche: '' };
+   Nouvelle vidéo = nouveau nom de fichier (cache de 7 jours). */
+var VIDEO = { youtube: '', vimeo: '', fichier: 'videos/vsl-ace-01.mp4', affiche: 'img/vsl-affiche-01.webp' };
 
 /* Pixels : vides = rien n'est chargé.
    Meta : PageView, puis Lead à l'envoi du formulaire.

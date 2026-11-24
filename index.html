@@ -46,6 +46,8 @@
 .video-lancer:hover .lecture::before{transform:skewX(var(--skew)) scale(1.06)}
 .video-lancer .lecture svg{width:26px;height:26px;margin-left:3px;fill:var(--color-on-accent)}
 .video-lancer:focus-visible{outline-offset:-8px}
+/* Avec une image d’attente : le bouton à droite, pour ne pas cacher le visage */
+.video-cadre>img + .video-lancer{align-items:flex-end;padding-right:12%}
 .ouverture .relance{margin-top:36px}
 
 /* ============ Bandeau ============ */
@@ -743,7 +745,7 @@ function envoyerLead(lead){
     document.getElementById('profilNom').textContent = nomComplet;
     document.getElementById('profilLegende').textContent = 'Fondateur d’ACE Club';
   }
-  if (CREATEUR.prenom) document.getElementById('quiNom').textContent = CREATEUR.prenom + ' ?';
+  if (CREATEUR.prenom) document.getElementById('quiNom').textContent = CREATEUR.prenom;
   if (CREATEUR.photo){
     var av = document.getElementById('avatar');
     av.innerHTML = '';
